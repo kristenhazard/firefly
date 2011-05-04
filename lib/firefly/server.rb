@@ -13,6 +13,10 @@ module Firefly
   class Server < Sinatra::Base
     enable :sessions
 
+    if Firefly.environment == "development"
+      enable :logging, :dump_errors, :raise_errors
+    end
+
     dir = File.join(File.dirname(__FILE__), '..', '..')
 
     set :views,   "#{dir}/views"
