@@ -23,6 +23,7 @@ module Firefly
     set :public,  "#{dir}/public"
     set :haml,    {:format => :html5 }
     set :static,  true
+    set :session_secret, nil
 
     attr_accessor :config
 
@@ -158,6 +159,8 @@ module Firefly
       @config        = config
       @highlight     = nil
       @title         = "Firefly at http://#{@config[:hostname]}"
+
+      set :session_secret, @config[:session_secret]
     end
 
     get '/' do
