@@ -12,11 +12,11 @@ require 'dm-aggregates'
 require 'escape_utils'
 require 'escape_utils/url/rack'
 
-begin
+# begin
   require 'barby'
   require 'barby/outputter/png_outputter'
-rescue LoadError
-end
+# rescue LoadError
+# end
 
 $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
